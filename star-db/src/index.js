@@ -1,40 +1,11 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import { createRoot } from 'react-dom/client'
+import App from './components/app';
 
-class SwapiService {
-  _apiBase = 'https://swapi.dev/api';
-  async getResourse(url) {
-    const res = await fetch(`${this._apiBase}${url}`);
-    if(!res.ok) {
-      throw new Error(`Could not fetch ${url}` + `, received ${res.status}`)
-    }
-    return await res.json();
-  }
-  async getAllPeople() {
-    const res = await this.getResourse(`/people/`);
-    return res.results;
-  }
-  getPerson(id) {
-    return this.getResourse(`/people/${id}/`);
-  }
-  async getAllPlanets() {
-    const res = await this.getResourse(`/planets/`);
-    return res.results;
-  }
-  getPlanet(id) {
-    return this.getResourse(`/planets/${id}/`);
-  }
-  async getAllStarships() {
-    const res = await this.getResourse(`/starships/`);
-    return res.results;
-  }
-  getStarship(id) {
-    return this.getResourse(`/starships/${id}/`);
-  }
-}
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App tab="home" />)
 
-const swapi = new SwapiService();
-
-swapi.getAllPeople().then((people) => {
-  people.forEach((p) => {
-    console.log(p.name);
-  })
-})
+// ReactDom.render(<App/>,
+//   document.getElementById('root'));
