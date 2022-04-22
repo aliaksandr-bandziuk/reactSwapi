@@ -5,3 +5,4 @@ Features:
 
 - Async / Await
 - Fetch API
+- Lifecycle hooks
