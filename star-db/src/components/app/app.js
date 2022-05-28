@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import Header from "../header";
 import ItemList from "../item-list";
@@ -14,15 +15,20 @@ const App = () => {
     <div className="container-app">
       <Header/>
       <RandomPlanet/>  
-         
-      <div className="row mb2">
+      <Routes>
+        <Route path="/" element={<h2>Welcome to StarDB</h2>} />
+        {/* <Route path="/planets" element={<RandomPlanet/>} /> */}
+        <Route path="/people" element={ <ItemList/>} />
+        <Route path="/details" element={ <PersonDetails /> } />
+      </Routes>
+      {/* <div className="row mb2">
         <div className="col-md-6">
           <ItemList/> 
         </div>
         <div className="col-md-6">
           <PersonDetails />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
