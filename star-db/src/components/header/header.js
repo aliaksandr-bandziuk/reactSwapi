@@ -1,25 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './header.scss';
 
 const Header = () => {
+
+  const setActive = ({isActive}) => isActive ? 'active-link' : '';
+
   return(
     <div className='header d-flex'>
       <h3>
-        <Link to='/'>
+        <NavLink to='/' className={setActive}>
           Star DB
-        </Link>
+        </NavLink>
       </h3>
       <ul className='d-flex'>
         <li>
-          <Link to='/people'>People</Link>
+          <NavLink to='/people'>People</NavLink>
         </li>
-        {/* <li>
-          <Link to='/planets'>Planets</Link>
-        </li> */}
         <li>
-          <Link to='/details'>Details</Link>
+          <NavLink to='/details'>Details</NavLink>
+        </li>
+        <li>
+          <NavLink to='/notes'>Star Notes</NavLink>
         </li>
       </ul>
     </div>
